@@ -1,0 +1,12 @@
+{
+  "appId": "",
+  "appDisplayName": "ModernWebApp by @nunosubtil",
+  "description": null,
+  "environmentId": "",
+  "buildPath": "./dist",
+  "buildEntryPoint": "index.html",
+  "logoPath": "Default",
+  "localAppUrl": "http://localhost:3000/",
+  "connectionReferences": {},
+  "databaseReferences": {}
+}

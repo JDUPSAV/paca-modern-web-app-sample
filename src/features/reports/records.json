@@ -1,0 +1,34 @@
+[
+  {
+    "id": "proposal-status",
+    "title": "Proposal status report",
+    "owner": "Nuno Subtil",
+    "lastUpdated": "2024-07-07",
+    "status": "Published",
+    "summary": "Weekly proposal pipeline update shared with leadership."
+  },
+  {
+    "id": "risk-register",
+    "title": "Delivery risk register",
+    "owner": "Priya Patel",
+    "lastUpdated": "2024-07-05",
+    "status": "Draft",
+    "summary": "Rolling risk assessment for active accounts."
+  },
+  {
+    "id": "financial-rollup",
+    "title": "Financial rollup",
+    "owner": "Daniel Park",
+    "lastUpdated": "2024-07-03",
+    "status": "In Review",
+    "summary": "Consolidated forecast and burn down metrics."
+  },
+  {
+    "id": "customer-insights",
+    "title": "Customer insights deck",
+    "owner": "Emily Whalen",
+    "lastUpdated": "2024-07-02",
+    "status": "Published",
+    "summary": "Insights gathered from the latest engagement retrospectives."
+  }
+]
