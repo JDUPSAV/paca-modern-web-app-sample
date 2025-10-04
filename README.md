@@ -2,6 +2,8 @@
 
 This repository provides a UI-only starter for building modern customer-facing experiences that plug directly into Microsoft Power Apps. It ships with the Power Platform SDK already wired up through `PowerProvider.tsx`, so you can focus on composing React interfaces before connecting to a backend or data source.
 
+<img width="2862" height="1772" alt="paca-modern-web-app-sample-by-nunosubtil" src="https://github.com/user-attachments/assets/5d3d2cdf-98d6-451d-9ab9-e03b82c23c37" />
+
 ## Tech Stack
 
 - Vite for fast bundling and local development
