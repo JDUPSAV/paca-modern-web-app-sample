@@ -1,4 +1,4 @@
-# Modern Web App Template
+# Modern Web App Sample
 
 This repository provides a UI-only starter for building modern customer-facing experiences that plug directly into Microsoft Power Apps. It ships with the Power Platform SDK already wired up through `PowerProvider.tsx`, so you can focus on composing React interfaces before connecting to a backend or data source.
 
@@ -31,7 +31,7 @@ Static assets meant for the build pipeline live in `src/assets/`, while public f
 ## Getting Started
 
 ```bash
-# clone the template
+# clone the sample
 git clone <repo-url>
 cd paca-modern-web-app-sample
 
