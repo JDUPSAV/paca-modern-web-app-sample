@@ -125,14 +125,14 @@ const chartData = [
 
 const chartConfig = {
   visitors: {
-    label: "Pipeline",
+    label: "Strategic Actions",
   },
   desktop: {
-    label: "Accounts",
+    label: "Action Plans",
     color: "var(--primary)",
   },
   mobile: {
-    label: "Contacts",
+    label: "Strategic Actions",
     color: "var(--primary)",
   },
 } satisfies ChartConfig;
@@ -164,10 +164,10 @@ export function ChartAreaInteractive() {
   return (
     <Card className="@container/card">
       <CardHeader>
-        <CardTitle>Pipeline Activity</CardTitle>
+        <CardTitle>Strategic Actions Progress</CardTitle>
         <CardDescription>
           <span className="hidden @[540px]/card:block">
-            Engagement across accounts and contacts in the last 3 months
+            Progress of strategic actions and plans over the last 3 months
           </span>
           <span className="@[540px]/card:hidden">Last 3 months</span>
         </CardDescription>

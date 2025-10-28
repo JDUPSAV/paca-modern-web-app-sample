@@ -262,7 +262,7 @@ const columns: ColumnDef<z.infer<typeof schema>>[] = [
               <SelectValue placeholder="Assign reviewer" />
             </SelectTrigger>
             <SelectContent align="end">
-              <SelectItem value="Nuno Subtil">Nuno Subtil</SelectItem>
+              <SelectItem value="J. Duplessis-Savard">J. Duplessis-Savard</SelectItem>
               <SelectItem value="Jamik Tashpulatov">
                 Jamik Tashpulatov
               </SelectItem>

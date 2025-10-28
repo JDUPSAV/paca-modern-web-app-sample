@@ -1,8 +1,8 @@
 {
-  "appId": "",
-  "appDisplayName": "ModernWebApp by @nunosubtil",
+  "appId": "a100d2ed-00f9-4392-8c26-7250a2f6ca9a",
+  "appDisplayName": "Modern Web App",
   "description": null,
-  "environmentId": "",
+  "environmentId": "a8a872f2-bf28-e940-9203-cd353114f6f1",
   "buildPath": "./dist",
   "buildEntryPoint": "index.html",
   "logoPath": "Default",

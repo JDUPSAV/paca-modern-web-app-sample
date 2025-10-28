@@ -30,24 +30,24 @@ export function DashboardView({ accounts, contacts }: DashboardViewProps) {
 
     return [
       {
-        title: "Total accounts",
+        title: "Total Action Plans",
         value: accounts.length.toString(),
-        description: "Customer organizations managed across all regions.",
-        trendLabel: `+${activeAccounts} engaged`,
+        description: "Strategic initiatives across all departments.",
+        trendLabel: `+${activeAccounts} in progress`,
         trendDirection: "up" as const,
       },
       {
-        title: "Active workstreams",
+        title: "Active Projects",
         value: activeAccounts.toString(),
-        description: "Accounts with in-flight delivery or expansion work.",
-        trendLabel: `${pendingAccounts} awaiting kickoff`,
+        description: "Strategic actions currently being implemented.",
+        trendLabel: `${pendingAccounts} pending approval`,
         trendDirection: pendingTrendDirection,
       },
       {
-        title: "New contacts",
+        title: "New Actions",
         value: newContacts.toString(),
-        description: "Fresh relationships ready for discovery conversations.",
-        trendLabel: `+${newContacts} this week`,
+        description: "Recently added strategic actions ready for review.",
+        trendLabel: `+${newContacts} this month`,
         trendDirection: "up" as const,
       },
       {

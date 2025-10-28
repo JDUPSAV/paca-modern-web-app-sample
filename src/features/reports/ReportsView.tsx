@@ -49,7 +49,7 @@ const initialKnowledgeBase: KnowledgeCategory[] = [
           "Quarterly alignment briefing outlining roadmap priorities, success metrics, and next checkpoints.",
         highlights: [
           "Objectives: align roadmap, budgets, and shared KPIs for H2",
-          "Pipeline velocity up 12% QoQ; spotlight accounts: Wingtip & Contoso",
+          "Strategic actions completion rate up 12% QoQ; spotlight projects: Urban Planning & Infrastructure",
           "Action items: finalize rollout plan and executive Q&A by July 15",
         ],
       },

@@ -35,15 +35,15 @@ const navSections = [
     ],
   },
   {
-    label: "Relationships",
+    label: "Strategic Planning",
     items: [
       {
-        title: "Accounts",
+        title: "Action Plans",
         id: "accounts",
         icon: IconUsers,
       },
       {
-        title: "Contacts",
+        title: "Strategic Actions",
         id: "contacts",
         icon: IconChartBar,
       },
@@ -53,8 +53,8 @@ const navSections = [
 
 const data = {
   user: {
-    name: "Nuno Subtil",
-    email: "nuno.subtil@example.com",
+    name: "J. Duplessis-Savard",
+    email: "j.duplessis-savard@laval.ca",
     avatar: "",
   },
   navSections,
@@ -108,7 +108,7 @@ export function AppSidebar({
             >
               <a href="#">
                 <IconInnerShadowTop className="!size-5" />
-                <span className="text-base font-semibold">Subtil Inc.</span>
+                <span className="text-base font-semibold">Ville de Laval</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
