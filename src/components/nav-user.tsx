@@ -89,7 +89,7 @@ export function NavUser({
             <DropdownMenuGroup>
               <DropdownMenuItem>
                 <IconUserCircle />
-                Account
+                Profile
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <IconCreditCard />

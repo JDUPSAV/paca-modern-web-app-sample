@@ -110,8 +110,8 @@ const initialKnowledgeBase: KnowledgeCategory[] = [
     description: "Research, dashboards, and readouts to inform roadmap decisions.",
     articles: [
       {
-        id: "customer-insights",
-        title: "Customer insights pulse",
+        id: "strategic-insights",
+        title: "Strategic Planning Insights",
         owner: "Dakota Garcia",
         status: "Published",
         updated: "2024-07-02",
@@ -426,7 +426,7 @@ export function ReportsView() {
               onChange={(event) =>
                 setDraftArticle((prev) => ({ ...prev, title: event.target.value }))
               }
-              placeholder="Ex: Customer onboarding checklist"
+              placeholder="Ex: Strategic initiative implementation checklist"
               required
             />
           </div>

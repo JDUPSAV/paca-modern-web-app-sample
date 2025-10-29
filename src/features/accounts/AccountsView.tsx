@@ -2,7 +2,7 @@ import { useMemo, useState } from "react"
 import { z } from "zod"
 
 import { DataTable, schema as tableSchema, type DataTableView } from "@/components/data-table"
-import { RelationshipCommandBar } from "@/components/relationship-command-bar"
+import { ActionCommandBar } from "@/components/relationship-command-bar"
 import { Modal } from "@/components/ui/modal"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/select"
 import { toast } from "sonner"
 
-export type AccountRecord = z.infer<typeof tableSchema> & {
+export type ActionPlanRecord = z.infer<typeof tableSchema> & {
   industry: string
   region: string
   stage: string
@@ -36,9 +36,9 @@ export type AccountRecord = z.infer<typeof tableSchema> & {
 }
 
 type AccountsViewProps = {
-  records: AccountRecord[]
-  onCreate: (record: AccountRecord) => void
-  onUpdate: (record: AccountRecord) => void
+  records: ActionPlanRecord[]
+  onCreate: (record: ActionPlanRecord) => void
+  onUpdate: (record: ActionPlanRecord) => void
   onDelete: (recordId: number) => void
 }
 
@@ -128,14 +128,14 @@ export function AccountsView({ records, onCreate, onUpdate, onDelete }: Accounts
         id: "accounts-active",
         label: "Active Accounts",
         badge: activeAccounts.length,
-        filter: ((record: AccountRecord) =>
+        filter: ((record: ActionPlanRecord) =>
           record.status === "Active" || record.status === "In Process") as DataTableView["filter"],
       },
       {
         id: "accounts-inactive",
         label: "Inactive Accounts",
         badge: inactiveAccounts.length,
-        filter: ((record: AccountRecord) =>
+        filter: ((record: ActionPlanRecord) =>
           record.status === "Pending" || record.status === "Closed") as DataTableView["filter"],
       },
     ],
@@ -153,7 +153,7 @@ export function AccountsView({ records, onCreate, onUpdate, onDelete }: Accounts
     setIsDialogOpen(true)
   }
 
-  function openEditDialog(record: AccountRecord) {
+  function openEditDialog(record: ActionPlanRecord) {
     setDialogMode("edit")
     setEditingRecordId(record.id)
     setFormState({
@@ -192,7 +192,7 @@ export function AccountsView({ records, onCreate, onUpdate, onDelete }: Accounts
           ? Math.max(...records.map((record) => record.id)) + 1
           : 1
 
-    const nextRecord: AccountRecord = {
+    const nextRecord: ActionPlanRecord = {
       id: recordId,
       header: formState.header,
       type: formState.type,
@@ -231,14 +231,14 @@ export function AccountsView({ records, onCreate, onUpdate, onDelete }: Accounts
   const submitLabel = isEditing ? "Save Changes" : "Save Account"
   const modalTitle = isEditing ? "Edit account" : "Create account"
   const modalDescription = isEditing
-    ? "Update the core details for this customer account."
-    : "Capture the core details for a new customer account."
+    ? "Update the core details for this strategic action plan."
+    : "Create a new strategic action plan."
 
   const selectedAccounts = useMemo(
     () =>
       selectedAccountIds
         .map((id) => records.find((record) => record.id === id) || null)
-        .filter((record): record is AccountRecord => record !== null),
+        .filter((record): record is ActionPlanRecord => record !== null),
     [selectedAccountIds, records]
   )
 
@@ -291,7 +291,7 @@ export function AccountsView({ records, onCreate, onUpdate, onDelete }: Accounts
   return (
     <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
       <div className="px-4 lg:px-6">
-        <RelationshipCommandBar
+        <ActionCommandBar
           hasSelection={hasSelection}
           selectionCount={selectedAccounts.length}
           onAdd={openCreateDialog}
@@ -659,7 +659,7 @@ export function AccountsView({ records, onCreate, onUpdate, onDelete }: Accounts
             />
           </div>
           <div className="grid gap-2 md:col-span-2 xl:col-span-2">
-            <Label htmlFor="account-summary">Engagement summary</Label>
+            <Label htmlFor="account-summary">Action Plan Summary</Label>
             <textarea
               id="account-summary"
               className="min-h-[120px] rounded-md border border-input bg-background px-3 py-2 text-sm shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -693,7 +693,7 @@ export function AccountsView({ records, onCreate, onUpdate, onDelete }: Accounts
 }
 
 type AccountDetailProps = {
-  record: AccountRecord
+  record: ActionPlanRecord
 }
 
 function AccountDetail({ record }: AccountDetailProps) {
@@ -744,7 +744,7 @@ function AccountDetail({ record }: AccountDetailProps) {
           />
         </div>
       </div>
-      <DetailField label="Engagement summary" value={record.summary || "No summary captured yet."} multiline />
+      <DetailField label="Action Plan Summary" value={record.summary || "No summary captured yet."} multiline />
       <DetailField label="Notes" value={record.notes || "No additional notes."} multiline />
     </div>
   )

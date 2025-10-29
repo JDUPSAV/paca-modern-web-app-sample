@@ -2,7 +2,7 @@ import { useMemo, useState } from "react"
 import { z } from "zod"
 
 import { DataTable, schema as tableSchema, type DataTableView } from "@/components/data-table"
-import { RelationshipCommandBar } from "@/components/relationship-command-bar"
+import { ActionCommandBar } from "@/components/relationship-command-bar"
 import { Modal } from "@/components/ui/modal"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/select"
 import { toast } from "sonner"
 
-export type ContactRecord = z.infer<typeof tableSchema> & {
+export type StrategicActionRecord = z.infer<typeof tableSchema> & {
   company: string
   role: string
   email: string
@@ -35,18 +35,18 @@ export type ContactRecord = z.infer<typeof tableSchema> & {
 }
 
 type ContactsViewProps = {
-  records: ContactRecord[]
-  onCreate: (record: ContactRecord) => void
-  onUpdate: (record: ContactRecord) => void
+  records: StrategicActionRecord[]
+  onCreate: (record: StrategicActionRecord) => void
+  onUpdate: (record: StrategicActionRecord) => void
   onDelete: (recordId: number) => void
 }
 
-const sources = ["Inbound", "Outbound", "Partner", "Event", "Customer"]
+const sources = ["Municipal", "Provincial", "Federal", "Community", "Internal"]
 const contactStatuses = ["New", "Contacted", "Qualified", "Nurture"]
 const contactStages = ["Discovery", "Evaluation", "Proposal", "Decision"]
 const interestLevels = ["High", "Medium", "Low"]
 const contactMethods = ["Email", "Phone", "Teams", "In-person"]
-const lifecycleStages = ["Prospect", "Qualification", "Negotiation", "Customer", "Churn Risk"]
+const lifecycleStages = ["Proposed", "Planning", "Implementation", "Complete", "Review"]
 
 type ContactFormState = {
   header: string
@@ -118,15 +118,15 @@ export function ContactsView({ records, onCreate, onUpdate, onDelete }: Contacts
     () => [
       {
         id: "contacts-active",
-        label: "Active Contacts",
+        label: "Active Actions",
         badge: activeContacts.length,
-        filter: ((record: ContactRecord) => record.status !== "Nurture") as DataTableView["filter"],
+        filter: ((record: StrategicActionRecord) => record.status !== "Nurture") as DataTableView["filter"],
       },
       {
         id: "contacts-inactive",
-        label: "Inactive Contacts",
+        label: "Completed Actions",
         badge: inactiveContacts.length,
-        filter: ((record: ContactRecord) => record.status === "Nurture") as DataTableView["filter"],
+        filter: ((record: StrategicActionRecord) => record.status === "Nurture") as DataTableView["filter"],
       },
     ],
     [activeContacts.length, inactiveContacts.length]
@@ -143,7 +143,7 @@ export function ContactsView({ records, onCreate, onUpdate, onDelete }: Contacts
     setIsDialogOpen(true)
   }
 
-  function openEditDialog(record: ContactRecord) {
+  function openEditDialog(record: StrategicActionRecord) {
     setDialogMode("edit")
     setEditingRecordId(record.id)
     setFormState({
@@ -181,7 +181,7 @@ export function ContactsView({ records, onCreate, onUpdate, onDelete }: Contacts
           ? Math.max(...records.map((record) => record.id)) + 1
           : 1
 
-    const nextRecord: ContactRecord = {
+    const nextRecord: StrategicActionRecord = {
       id: recordId,
       header: formState.header,
       type: formState.type,
@@ -226,7 +226,7 @@ export function ContactsView({ records, onCreate, onUpdate, onDelete }: Contacts
     () =>
       selectedContactIds
         .map((id) => records.find((record) => record.id === id) || null)
-        .filter((record): record is ContactRecord => record !== null),
+        .filter((record): record is StrategicActionRecord => record !== null),
     [selectedContactIds, records]
   )
 
@@ -279,7 +279,7 @@ export function ContactsView({ records, onCreate, onUpdate, onDelete }: Contacts
   return (
     <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
       <div className="px-4 lg:px-6">
-        <RelationshipCommandBar
+        <ActionCommandBar
           hasSelection={hasSelection}
           selectionCount={selectedContacts.length}
           onAdd={openCreateDialog}
@@ -674,7 +674,7 @@ export function ContactsView({ records, onCreate, onUpdate, onDelete }: Contacts
 }
 
 type ContactDetailProps = {
-  record: ContactRecord
+  record: StrategicActionRecord
 }
 
 function ContactDetail({ record }: ContactDetailProps) {

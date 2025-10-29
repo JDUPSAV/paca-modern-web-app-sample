@@ -12,9 +12,9 @@ import {
 } from "@/components/ui/sidebar"
 import { schema as tableSchema } from "@/components/data-table"
 import { AccountsView } from "@/features/accounts"
-import type { AccountRecord } from "@/features/accounts/AccountsView"
+import type { ActionPlanRecord } from "@/features/accounts/AccountsView"
 import { ContactsView } from "@/features/contacts"
-import type { ContactRecord } from "@/features/contacts/ContactsView"
+import type { StrategicActionRecord } from "@/features/contacts/ContactsView"
 import { DashboardView } from "@/features/dashboard"
 import { ReportsView } from "@/features/reports"
 import dashboardRecordsJson from "@/features/dashboard/records.json"
@@ -88,11 +88,11 @@ const SEARCH_SUGGESTIONS: {
 
 export default function DashboardPage() {
   const [activeSection, setActiveSection] = useState<SectionKey>("dashboard")
-  const [accountRecords, setAccountRecords] = useState<AccountRecord[]>(
-    () => accountRecordsJson as AccountRecord[]
+  const [accountRecords, setAccountRecords] = useState<ActionPlanRecord[]>(
+    () => accountRecordsJson as ActionPlanRecord[]
   )
-  const [contactRecords, setContactRecords] = useState<ContactRecord[]>(
-    () => contactRecordsJson as ContactRecord[]
+  const [contactRecords, setContactRecords] = useState<StrategicActionRecord[]>(
+    () => contactRecordsJson as StrategicActionRecord[]
   )
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState("")
@@ -187,11 +187,11 @@ export default function DashboardPage() {
     return [...dashboardHits, ...accountHits, ...contactHits, ...reportHits]
   }, [searchQuery, accountRecords, contactRecords])
 
-  const handleAccountCreate = (record: AccountRecord) => {
+  const handleAccountCreate = (record: ActionPlanRecord) => {
     setAccountRecords((prev) => [record, ...prev])
   }
 
-  const handleAccountUpdate = (record: AccountRecord) => {
+  const handleAccountUpdate = (record: ActionPlanRecord) => {
     setAccountRecords((prev) =>
       prev.map((entry) => (entry.id === record.id ? record : entry))
     )
@@ -201,11 +201,11 @@ export default function DashboardPage() {
     setAccountRecords((prev) => prev.filter((entry) => entry.id !== recordId))
   }
 
-  const handleContactCreate = (record: ContactRecord) => {
+  const handleContactCreate = (record: StrategicActionRecord) => {
     setContactRecords((prev) => [record, ...prev])
   }
 
-  const handleContactUpdate = (record: ContactRecord) => {
+  const handleContactUpdate = (record: StrategicActionRecord) => {
     setContactRecords((prev) =>
       prev.map((entry) => (entry.id === record.id ? record : entry))
     )

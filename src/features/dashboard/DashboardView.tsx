@@ -2,12 +2,12 @@ import { useMemo } from "react";
 
 import { ChartAreaInteractive } from "@/components/chart-area-interactive";
 import { SectionCards } from "@/components/section-cards";
-import type { AccountRecord } from "@/features/accounts/AccountsView";
-import type { ContactRecord } from "@/features/contacts/ContactsView";
+import type { ActionPlanRecord } from "@/features/accounts/AccountsView";
+import type { StrategicActionRecord } from "@/features/contacts/ContactsView";
 
 type DashboardViewProps = {
-  accounts: AccountRecord[];
-  contacts: ContactRecord[];
+  accounts: ActionPlanRecord[];
+  contacts: StrategicActionRecord[];
 };
 
 export function DashboardView({ accounts, contacts }: DashboardViewProps) {
@@ -51,9 +51,9 @@ export function DashboardView({ accounts, contacts }: DashboardViewProps) {
         trendDirection: "up" as const,
       },
       {
-        title: "Qualified contacts",
+        title: "Active Plans",
         value: qualifiedContacts.toString(),
-        description: "Decision makers aligned on solution scope and value.",
+        description: "Number of active plan for this cycle.",
         trendLabel: `${qualifiedContacts} ready to hand off`,
         trendDirection: "up" as const,
       },

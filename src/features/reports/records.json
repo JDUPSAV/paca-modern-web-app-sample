@@ -1,7 +1,7 @@
 [
   {
-    "id": "proposal-status",
-    "title": "Proposal status report",
+    "id": "initiative-status",
+    "title": "Strategic Initiatives Status Report",
     "owner": "J. Duplessis-Savard",
     "lastUpdated": "2024-07-07",
     "status": "Published",
@@ -13,7 +13,7 @@
     "owner": "Priya Patel",
     "lastUpdated": "2024-07-05",
     "status": "Draft",
-    "summary": "Rolling risk assessment for active accounts."
+    "summary": "Rolling risk assessment for active strategic initiatives."
   },
   {
     "id": "financial-rollup",

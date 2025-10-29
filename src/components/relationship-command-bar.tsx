@@ -8,7 +8,7 @@ import {
   IconX,
 } from "@tabler/icons-react"
 
-type RelationshipCommandBarProps = {
+type ActionCommandBarProps = {
   hasSelection: boolean
   selectionCount: number
   onAdd: () => void
@@ -19,7 +19,7 @@ type RelationshipCommandBarProps = {
   onClearSelection: () => void
 }
 
-export function RelationshipCommandBar({
+export function ActionCommandBar({
   hasSelection,
   selectionCount,
   onAdd,
@@ -28,7 +28,7 @@ export function RelationshipCommandBar({
   onAssignSelected,
   onDeleteSelected,
   onClearSelection,
-}: RelationshipCommandBarProps) {
+}: ActionCommandBarProps) {
   return (
     <div className="flex flex-wrap items-center justify-between gap-3">
       <div className="flex flex-wrap items-center gap-2">
